@@ -61,7 +61,6 @@ class AppRoot extends HTMLElement {
 
     const header = this.shadowRoot.querySelector('header');
     this._setHeaderHeight = () => {
-      // ceil, чтобы убрать дробные пиксели и возможный 1px вертикальный скролл
       const hh = Math.ceil(header.getBoundingClientRect().height);
       this.style.setProperty('--header-h', `${hh}px`);
     };
@@ -86,8 +85,21 @@ class AppRoot extends HTMLElement {
     });
 
 
-    this.addEventListener('polys:save', ()=>console.log('save'));
-    this.addEventListener('polys:reset', ()=>console.log('reset'));
+    this.addEventListener('polys:save', () => {
+      console.log('polys:save event received');
+      const workZone = this.shadowRoot.querySelector('work-zone');
+      if (!workZone) {
+        console.error('work-zone element not found');
+        return;
+      }
+      workZone.save();
+    });
+
+    this.addEventListener('polys:reset', () => {
+      const workZone = this.shadowRoot.querySelector('work-zone');
+      workZone?.reset();
+    });
+
   }
 }
 customElements.define('app-root', AppRoot);

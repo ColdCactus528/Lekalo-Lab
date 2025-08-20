@@ -15,7 +15,7 @@ class BufferZone extends HTMLElement {
     const svgItems = this._polys.map(p => {
       const pointsStr = p.points.map(pt => `${pt.x},${pt.y}`).join(" ");
       
-      const isSelected = this._selectedId === p.id;
+      const isSelected = this._selectedId === String(p.id);
       
       return `
         <svg width="120" height="90" viewBox="0 0 120 90" data-id="${p.id}">
@@ -59,7 +59,7 @@ class BufferZone extends HTMLElement {
 
     this.shadowRoot.querySelectorAll('svg').forEach(svg => {
       svg.addEventListener('click', () => {
-        this._selectedId = svg.dataset.id;
+        this._selectedId = String(svg.dataset.id);
         this.render();
       });
 

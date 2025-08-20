@@ -3,16 +3,22 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve",
-    "build": "webpack"
+    "dev": "webpack serve --config webpack.config.js",
+    "build": "webpack --mode production --config webpack.config.js",
+    "preview": "serve -s dist"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "babel-loader": "^10.0.0",
+    "copy-webpack-plugin": "^13.0.1",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
+    "serve": "^14.2.4",
     "style-loader": "^4.0.0",
     "webpack": "^5.101.1",
     "webpack-cli": "^6.0.1",

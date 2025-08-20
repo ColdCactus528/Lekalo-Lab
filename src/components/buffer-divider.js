@@ -6,7 +6,7 @@ class BufferDivider extends HTMLElement {
         :host{
           display:block;
           height: var(--divider-h, 12px);
-          pointer-events: none;               /* не перехватывать drag */
+          pointer-events: none;
           background:
             linear-gradient(to bottom,
               rgba(255,255,255,.10),

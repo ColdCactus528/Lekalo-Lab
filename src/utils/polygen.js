@@ -145,7 +145,7 @@ export function makePolyConvex() {
     pts = [];
     let angleStep = (2 * Math.PI) / n;
     for (let i = 0; i < n; i++) {
-      const angle = i * angleStep + (Math.random() - 0.5) * angleStep * 0.5; // разброс ±25%
+      const angle = i * angleStep + (Math.random() - 0.5) * angleStep * 0.5;
       const r = rMin + Math.random() * (rMax - rMin) * 0.25;
       pts.push({ x: r * Math.cos(angle), y: r * Math.sin(angle) });
     }

@@ -15,9 +15,9 @@ class ControlsBar extends HTMLElement {
         select { margin-left: 12px; }
       </style>
 
-      <button id="create">Создать</button>
-      <button id="save">Сохранить</button>
-      <button id="reset">Сбросить</button>
+      <button id="create" type="button">Создать</button>
+      <button id="save"   type="button">Сохранить</button>
+      <button id="reset"  type="button">Сбросить</button>
     
       <label>
         Тип:
@@ -31,13 +31,13 @@ class ControlsBar extends HTMLElement {
     const send = (type, detail={}) =>
       this.dispatchEvent( new CustomEvent(type,{detail,bubbles:true,composed:true}));
 
-      this.shadowRoot.getElementById('create').onclick = () => {
-        const type = this.shadowRoot.getElementById('polyType').value;
-        send ('polys:create', { type });
-      };
+    this.shadowRoot.getElementById('create').onclick = () => {
+      const type = this.shadowRoot.getElementById('polyType').value;
+      send ('polys:create', { type });
+    };
 
-      this.shadowRoot.getElementById('save').onclick = () => send('polys:save');
-      this.shadowRoot.getElementById('reset').onclick = () => send('polys:reset');
+    this.shadowRoot.getElementById('save').onclick = () => send('polys:save');
+    this.shadowRoot.getElementById('reset').onclick = () => send('polys:reset');
   }
 }
 customElements.define('controls-bar', ControlsBar);
