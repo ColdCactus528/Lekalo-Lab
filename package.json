@@ -6,7 +6,7 @@
     "dev": "webpack serve --config webpack.config.js",
     "build": "webpack --mode production --config webpack.config.js",
     "preview": "serve -s dist",
-    "deploy": "npm run build && gh-pages -d dist--no-history"
+    "deploy": "npm run build && gh-pages -d dist --no-history"
   },
   "keywords": [],
   "author": "",
