@@ -14,6 +14,7 @@ module.exports = (env, argv) => {
       filename: isProd ? 'assets/js/[name].[contenthash:8].js' : 'assets/js/[name].js',
       assetModuleFilename: 'assets/[hash][ext][query]',
       clean: true, 
+      publicPath: isProd ? '' : '/',
     },
 
     module: {
